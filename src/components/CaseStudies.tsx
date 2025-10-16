@@ -1,4 +1,5 @@
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { TrendingUp, Users, Target } from 'lucide-react';
 
@@ -9,9 +10,7 @@ const caseStudies = [
     label: 'Engagement Increase',
     description: 'AI-driven social strategy for a B2B SaaS company',
     category: 'Social Media',
-    gradient: 'from-blue-500 to-blue-600',
-    before: '12%',
-    after: '30%',
+    gradient: 'from-primary/20 to-primary/5',
   },
   {
     icon: Users,
@@ -19,9 +18,7 @@ const caseStudies = [
     label: 'Lead Generation',
     description: 'Automated funnel with chatbot qualification system',
     category: 'Automation',
-    gradient: 'from-indigo-500 to-indigo-600',
-    before: '45',
-    after: '144',
+    gradient: 'from-secondary/20 to-secondary/5',
   },
   {
     icon: Target,
@@ -29,9 +26,7 @@ const caseStudies = [
     label: 'Cost Reduction',
     description: 'SEO + Content strategy replacing expensive ad spend',
     category: 'SEO & Content',
-    gradient: 'from-cyan-500 to-cyan-600',
-    before: '$12k/mo',
-    after: '$6.6k/mo',
+    gradient: 'from-primary/20 to-primary/5',
   },
 ];
 
@@ -40,23 +35,27 @@ const CaseStudies = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="case-studies" className="py-20 lg:py-32 bg-muted/20">
-      <div className="container mx-auto px-6" ref={ref}>
+    <section id="case-studies" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-blue bg-clip-text text-transparent">
-            Case Studies
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-accent bg-clip-text text-transparent">
+            Proven Results
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
             Real metrics from real clients who trusted us to transform their digital presence
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {caseStudies.map((study, index) => {
             const Icon = study.icon;
             return (
@@ -65,52 +64,31 @@ const CaseStudies = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                whileHover={{ y: -5 }}
-                className="group relative bg-white border border-border rounded-2xl p-6 shadow-card hover:shadow-3d-hover transition-all duration-500"
+                className="group relative"
               >
-                {/* Top Gradient Strip */}
-                <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r ${study.gradient}`} />
-                
-                {/* Icon */}
-                <div className={`bg-gradient-to-r ${study.gradient} rounded-xl p-3 w-fit mb-4 shadow-card`}>
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-
-                {/* Category Badge */}
-                <div className="inline-block px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs font-medium mb-4">
-                  {study.category}
-                </div>
-
-                {/* Metric */}
-                <div className={`text-5xl font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent mb-2`}>
-                  {study.metric}
-                </div>
-                
-                {/* Label */}
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {study.label}
-                </h3>
-
-                {/* Description */}
-                <p className="text-muted-foreground text-sm mb-4">
-                  {study.description}
-                </p>
-
-                {/* Progress Bar - Before/After */}
-                <div className="space-y-2">
-                  <div className="flex justify-between text-xs text-muted-foreground">
-                    <span>Before: {study.before}</span>
-                    <span>After: {study.after}</span>
+                <div className="absolute -inset-0.5 bg-gradient-accent opacity-0 group-hover:opacity-20 rounded-3xl blur transition-all duration-300" />
+                <div className="relative bg-card/40 backdrop-blur-md border border-border hover:border-primary/50 rounded-3xl p-8 shadow-glass hover:shadow-glow-subtle transition-all duration-300 h-full">
+                  <div className={`absolute top-0 left-0 right-0 h-32 bg-gradient-to-b ${study.gradient} rounded-t-3xl -z-10`} />
+                  
+                  <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="h-2 bg-muted rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: '100%' }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.5 + index * 0.2, duration: 1 }}
-                      className={`h-full bg-gradient-to-r ${study.gradient}`}
-                    />
+
+                  <div className="mb-4">
+                    <div className="text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-2">
+                      {study.metric}
+                    </div>
+                    <div className="text-xl font-semibold text-foreground mb-2">
+                      {study.label}
+                    </div>
+                    <div className="inline-block px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs font-medium text-primary mb-4">
+                      {study.category}
+                    </div>
                   </div>
+
+                  <p className="text-foreground/70 leading-relaxed">
+                    {study.description}
+                  </p>
                 </div>
               </motion.div>
             );
