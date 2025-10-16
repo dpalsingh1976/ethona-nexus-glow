@@ -44,18 +44,18 @@ const Hero = () => {
       </div>
 
       {/* Floating Icons */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         {services.map((service, index) => {
           const Icon = service.icon;
           const angle = (index / services.length) * 2 * Math.PI;
-          const radius = 280;
+          const radius = 420; // Increased radius to move icons further out
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius;
 
           return (
             <motion.div
               key={service.label}
-              className="absolute top-1/2 left-1/2"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               initial={{ opacity: 0, scale: 0 }}
               animate={{
                 opacity: 1,
@@ -72,18 +72,18 @@ const Hero = () => {
               <motion.div
                 className="relative group cursor-pointer"
                 animate={{
-                  y: [0, -15, 0],
+                  y: [0, -10, 0],
                 }}
                 transition={{
-                  duration: 4 + index * 0.2,
+                  duration: 3 + index * 0.15,
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
               >
-                <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl group-hover:bg-primary/40 transition-all duration-300" />
-                <div className="relative bg-card/40 backdrop-blur-md border border-primary/20 rounded-2xl p-4 shadow-glass group-hover:shadow-glow-subtle group-hover:border-primary/50 transition-all duration-300">
-                  <Icon className="w-8 h-8 text-primary" />
-                  <p className="mt-2 text-xs font-medium text-foreground/80">{service.label}</p>
+                <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-lg group-hover:bg-primary/30 transition-all duration-300" />
+                <div className="relative bg-card/50 backdrop-blur-sm border border-primary/30 rounded-xl p-3 shadow-glass group-hover:shadow-glow-subtle group-hover:border-primary/60 transition-all duration-300">
+                  <Icon className="w-6 h-6 text-primary" />
+                  <p className="mt-1.5 text-[10px] font-medium text-foreground/70 whitespace-nowrap">{service.label}</p>
                 </div>
               </motion.div>
             </motion.div>
