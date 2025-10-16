@@ -71,16 +71,18 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-tl from-primary/30 to-transparent blur-3xl -z-10 scale-90" />
               
               {/* Laptop image with blend */}
-              <div className="relative mix-blend-lighten">
+              <div className="relative">
                 <img 
                   src={heroLaptop} 
                   alt="4D Holographic Digital Marketing Dashboard" 
-                  className="w-full h-auto drop-shadow-2xl"
+                  className="w-full h-auto drop-shadow-2xl opacity-90 mix-blend-screen"
                 />
+                {/* Dark overlay to blend the lighter background */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/60 pointer-events-none" />
               </div>
               
               {/* Foreground glow integration */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background via-background/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-background via-background/70 to-transparent" />
             </motion.div>
           </motion.div>
         </div>
