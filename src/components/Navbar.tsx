@@ -21,17 +21,24 @@ const Navbar = () => {
     { label: 'About', href: '#about' },
   ];
 
+  const scrollToContact = () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-card/80 backdrop-blur-lg border-b border-border shadow-glass'
+          ? 'bg-white/80 backdrop-blur-lg border-b border-border shadow-card'
           : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold bg-gradient-accent bg-clip-text text-transparent">
+          <a href="#" className="text-2xl font-bold bg-gradient-blue bg-clip-text text-transparent">
             Ethona Digital Lab
           </a>
 
@@ -41,13 +48,16 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-foreground/70 hover:text-primary transition-colors duration-300 font-medium"
               >
                 {link.label}
               </a>
             ))}
-            <Button variant="default" className="bg-gradient-accent text-primary-foreground hover:shadow-glow-primary transition-all duration-300">
-              Get a Demo
+            <Button 
+              onClick={scrollToContact}
+              className="bg-gradient-blue text-white hover:shadow-3d transition-all duration-300"
+            >
+              Contact Us
             </Button>
           </div>
 
@@ -67,14 +77,20 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="block text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="block text-foreground/70 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <Button variant="default" className="w-full bg-gradient-accent text-primary-foreground">
-              Get a Demo
+            <Button 
+              onClick={() => {
+                scrollToContact();
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full bg-gradient-blue text-white"
+            >
+              Contact Us
             </Button>
           </div>
         )}
