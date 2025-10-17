@@ -108,24 +108,7 @@ const Hero = () => {
               
               {/* Enhanced foreground blend - smoother transition */}
               <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
-              
-              {/* Floating Holographic Icons */}
-              {floatingIcons.map(({ Icon, label, position, delay }) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ 
-                    opacity: [0.4, 0.7, 0.4],
-                    scale: 1,
-                    y: [0, -10, 0]
-                  }}
-                  transition={{
-                    opacity: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-                    scale: { duration: 0.5, delay },
-                    y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay }
-                  }}
-                  className={`absolute ${position} hidden lg:block`}
-                >
+           
                   <div className="relative group">
                     <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-300" />
                     <div className="relative bg-gradient-glass backdrop-blur-md border border-primary/30 rounded-xl p-3 group-hover:border-primary/60 transition-all duration-300">
