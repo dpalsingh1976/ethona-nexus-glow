@@ -52,29 +52,34 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-  {/* --- Ground glow base --- */}
-  <div
-    aria-hidden
-    className="absolute -bottom-10 left-1/2 z-0 h-44 w-[140%] -translate-x-1/2"
-  >
-    {/* soft base glow */}
-    <div className="absolute inset-0 rounded-[50%] bg-cyan-400/25 blur-3xl opacity-90 mix-blend-screen" />
-    {/* bright rim to create 'half-circle' arc */}
-    <div className="absolute inset-0 rounded-[50%] bg-cyan-500/60 blur-2xl mix-blend-screen
-                    [mask-image:radial-gradient(60%_100%_at_50%_100%,transparent_38%,black_40%)]" />
-  </div>
+          {/* Ground glow base */}
+          <div
+            aria-hidden
+            className="absolute -bottom-10 left-1/2 z-0 h-44 w-[140%] -translate-x-1/2"
+          >
+            <div className="absolute inset-0 rounded-[50%] bg-cyan-400/25 blur-3xl opacity-90 mix-blend-screen" />
+            <div className="absolute inset-0 rounded-[50%] bg-cyan-500/60 blur-2xl mix-blend-screen [mask-image:radial-gradient(60%_100%_at_50%_100%,transparent_38%,black_40%)]" />
+          </div>
 
-  {/* --- Laptop image --- */}
-  <Image
-    src="/laptop-hero.png"
-    alt="AI laptop interface"
-    width={900}
-    height={620}
-    priority
-    className="relative z-10 w-full max-w-[900px] bg-transparent drop-shadow-[0_25px_60px_rgba(0,180,255,0.25)]"
-  />
+          {/* Laptop image */}
+          <img
+            src="/laptop-hero.png"
+            alt="AI laptop interface"
+            className="relative z-10 w-full max-w-[900px] bg-transparent drop-shadow-[0_25px_60px_rgba(0,180,255,0.25)]"
+          />
 
-</div>
+          {/* Floating chips */}
+          <div className="absolute -right-4 top-12 animate-[float_3s_ease-in-out_infinite] rounded-lg border border-cyan-400/20 bg-cyan-950/40 px-4 py-2 text-sm font-medium text-cyan-300 backdrop-blur-sm">
+            Chatbots
+          </div>
+          <div className="absolute right-8 top-32 animate-[float_3.5s_ease-in-out_infinite] rounded-lg border border-emerald-400/20 bg-emerald-950/40 px-4 py-2 text-sm font-medium text-emerald-300 backdrop-blur-sm">
+            Automation
+          </div>
+          <div className="absolute -right-2 bottom-24 animate-[float_4s_ease-in-out_infinite] rounded-lg border border-purple-400/20 bg-purple-950/40 px-4 py-2 text-sm font-medium text-purple-300 backdrop-blur-sm">
+            Analytics
+          </div>
+        </div>
+      </div>
 
       <div id="solutions" className="h-16" />
     </section>
