@@ -52,23 +52,29 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute -bottom-6 left-1/2 h-40 w-[120%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(50%_45%_at_50%_50%,rgba(0,180,255,0.35),transparent_70%)] blur-2xl" />
-          <img
-            src="/laptop-hero.png"
-            alt="AI laptop interface"
-            className="relative z-10 w-full max-w-[900px] drop-shadow-[0_25px_60px_rgba(0,180,255,0.25)]"
-          />
-          <div className="pointer-events-none absolute -left-3 top-[16%] z-20 animate-float rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 backdrop-blur">
-            Chatbots
-          </div>
-          <div className="pointer-events-none absolute right-2 top-[3%] z-20 animate-float rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 backdrop-blur [animation-delay:1.1s]">
-            Automation
-          </div>
-          <div className="pointer-events-none absolute -right-2 bottom-[6%] z-20 animate-float rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 backdrop-blur [animation-delay:0.6s]">
-            Analytics
-          </div>
-        </div>
-      </div>
+  {/* --- Ground glow base --- */}
+  <div
+    aria-hidden
+    className="absolute -bottom-10 left-1/2 z-0 h-44 w-[140%] -translate-x-1/2"
+  >
+    {/* soft base glow */}
+    <div className="absolute inset-0 rounded-[50%] bg-cyan-400/25 blur-3xl opacity-90 mix-blend-screen" />
+    {/* bright rim to create 'half-circle' arc */}
+    <div className="absolute inset-0 rounded-[50%] bg-cyan-500/60 blur-2xl mix-blend-screen
+                    [mask-image:radial-gradient(60%_100%_at_50%_100%,transparent_38%,black_40%)]" />
+  </div>
+
+  {/* --- Laptop image --- */}
+  <Image
+    src="/laptop-hero.png"
+    alt="AI laptop interface"
+    width={900}
+    height={620}
+    priority
+    className="relative z-10 w-full max-w-[900px] bg-transparent drop-shadow-[0_25px_60px_rgba(0,180,255,0.25)]"
+  />
+
+</div>
 
       <div id="solutions" className="h-16" />
     </section>
