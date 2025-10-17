@@ -1,163 +1,95 @@
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import heroLaptop from '@/assets/hero-laptop-4d.png';
+"use client";
 
-const Hero = () => {
+import Image from "next/image";
+
+export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Enhanced Background with Professional Depth */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Sophisticated ambient glow orbs with better positioning */}
-        <div className="absolute top-[20%] left-[15%] w-[700px] h-[700px] bg-primary/15 rounded-full blur-[140px] animate-glow-pulse" />
-        <div className="absolute bottom-[15%] right-[10%] w-[650px] h-[650px] bg-secondary/12 rounded-full blur-[130px] animate-glow-pulse" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/8 rounded-full blur-[160px] animate-glow-pulse" style={{ animationDelay: '3s' }} />
-        
-        {/* Multi-layer gradient waves for professional depth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-secondary/6" />
-        <div className="absolute inset-0 bg-gradient-to-tl from-secondary/5 via-transparent to-primary/4" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(199_100%_50%_/_0.06)_0%,_transparent_60%)]" />
-        
-        {/* Subtle grid pattern for tech feel */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,163,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,163,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]" />
-      </div>
+    <section className="relative overflow-hidden">
+      {/* Background gradient + grid */}
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(1200px_600px_at_70%_40%,rgba(0,153,255,0.28),transparent),radial-gradient(800px_400px_at_25%_30%,rgba(0,255,234,0.14),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(15,23,42,0.9),rgba(15,23,42,0.9))] [mask-image:radial-gradient(70%_60%_at_60%_50%,#000_55%,transparent_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[url('/grid.svg')] opacity-[0.12]" />
 
-      {/* Hero Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Enhanced Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center lg:text-left space-y-8"
-          >
-            {/* Premium badge/label */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="inline-block"
+      {/* subtle particles */}
+      <div className="pointer-events-none absolute inset-0 -z-10 animate-pulse [background:radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.08)_0,transparent_55%)]" />
+
+      <div className="container mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-28">
+        {/* Copy */}
+        <div>
+          <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-cyan-300 backdrop-blur">
+            AI-Powered Solutions
+          </span>
+
+          <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] text-cyan-400 md:text-7xl">
+            Ethona Digital Lab
+          </h1>
+
+          <p className="mt-4 text-2xl font-semibold text-white">
+            Where Intelligence Creates
+          </p>
+
+          <p className="mt-3 max-w-xl text-white/70">
+            AI-powered digital marketing and automation that helps brands grow
+            smarter—turning strategy into measurable revenue.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href="/demo"
+              className="group relative inline-flex items-center gap-2 rounded-xl border border-cyan-500/40 bg-cyan-600/20 px-5 py-3 font-semibold text-cyan-200 transition md:px-6 hover:border-cyan-400 hover:text-white"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-sm font-medium text-primary">AI-Powered Solutions</span>
-              </div>
-            </motion.div>
-
-            {/* Main heading with enhanced styling */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
-              <span className="block bg-gradient-to-r from-primary via-primary/90 to-secondary bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,163,255,0.3)]">
-                Ethona Digital Lab
-              </span>
-            </h1>
-
-            {/* Tagline with better hierarchy */}
-            <div className="space-y-3">
-              <h2 className="text-2xl md:text-3xl font-semibold text-foreground/95">
-                Where Intelligence Creates
-              </h2>
-              <p className="text-lg md:text-xl text-foreground/70 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                AI-powered digital marketing and automation to help brands grow smarter
-              </p>
-            </div>
-
-            {/* Enhanced CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-              <Button
-                size="lg"
-                className="relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white border-0 shadow-[0_0_30px_rgba(0,163,255,0.4)] hover:shadow-[0_0_40px_rgba(0,163,255,0.6)] transition-all duration-300 text-lg px-8 py-6 group overflow-hidden font-semibold"
+              <span className="absolute inset-0 -z-10 rounded-xl bg-cyan-500/20 blur opacity-0 transition group-hover:opacity-100" />
+              Get a Demo
+              <svg
+                className="size-4 transition group-hover:translate-x-0.5"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  Get a Demo
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              </Button>
+                <path d="M5 12h14M13 5l7 7-7 7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="relative bg-transparent backdrop-blur-sm border-2 border-primary/40 text-foreground hover:bg-primary/10 hover:border-primary/60 shadow-[0_0_20px_rgba(0,163,255,0.2)] hover:shadow-[0_0_30px_rgba(0,163,255,0.3)] transition-all duration-300 text-lg px-8 py-6 group font-semibold"
-              >
-                <span className="relative z-10">Explore Solutions</span>
-              </Button>
+            <a
+              href="#solutions"
+              className="inline-flex items-center rounded-xl bg-white/5 px-5 py-3 font-semibold text-white/90 ring-1 ring-white/10 transition hover:bg-white/10 md:px-6"
+            >
+              See How It Works
+            </a>
+          </div>
+
+          <div className="mt-8 flex items-center gap-6 text-sm text-white/60">
+            <div className="flex items-center gap-2">
+              <span className="i-lucide-star size-4" /> 500+ Projects
             </div>
+            <div className="flex items-center gap-2">
+              <span className="i-lucide-badge-check size-4" /> 98% Satisfaction
+            </div>
+          </div>
+        </div>
 
-            {/* Trust indicators */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex items-center gap-8 justify-center lg:justify-start pt-6 text-sm text-foreground/60"
-            >
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <span>500+ Projects</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>98% Satisfaction</span>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column - Completely Seamless Laptop Integration */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative max-w-full"
-          >
-            <motion.div
-              animate={{ 
-                y: [0, -25, 0],
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              className="relative"
-            >
-              {/* Laptop image with complete transparency and seamless integration */}
-              <div className="relative">
-                <img 
-                  src={heroLaptop} 
-                  alt="4D Holographic Digital Marketing Dashboard" 
-                  className="w-full h-auto relative z-10"
-                  style={{ 
-                    filter: 'drop-shadow(0 25px 80px rgba(0, 163, 255, 0.25)) brightness(1.2) contrast(1.05)',
-                  }}
-                />
-                
-                {/* Soft glow behind laptop that matches page background perfectly */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10">
-                  <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-primary/10 to-transparent blur-[100px]" />
-                </div>
-                
-                {/* Additional ambient glow layers */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] -z-20">
-                  <div className="absolute inset-0 bg-gradient-radial from-secondary/15 via-secondary/5 to-transparent blur-[120px] animate-glow-pulse" />
-                </div>
-                
-                {/* Bottom fade to blend with page */}
-                <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-background/80 via-background/40 to-transparent pointer-events-none -z-5" />
-                
-                {/* Extended bottom blend for complete seamlessness */}
-                <div className="absolute -bottom-32 -left-32 -right-32 h-64 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none -z-5" />
-              </div>
-            </motion.div>
-          </motion.div>
+        {/* Visual */}
+        <div className="relative">
+          {/* ground glow to “blend” laptop into hero */}
+          <div className="absolute -bottom-6 left-1/2 h-40 w-[120%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(50%_45%_at_50%_50%,rgba(0,180,255,0.35),transparent_70%)] blur-2xl" />
+          <Image
+            src="/laptop-hero.png" // put your hero image here
+            alt="AI laptop interface"
+            width={900}
+            height={620}
+            className="relative z-10 w-full max-w-[900px] drop-shadow-[0_25px_60px_rgba(0,180,255,0.25)]"
+            priority
+          />
+          {/* floating icon chips */}
+          <div className="pointer-events-none absolute -left-6 top-[16%] z-20 animate-[float_8s_ease-in-out_infinite] rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 backdrop-blur">
+            Chatbots
+          </div>
+          <div className="pointer-events-none absolute right-2 top-[4%] z-20 animate-[float_7s_ease-in-out_infinite] rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 backdrop-blur [animation-delay:1.2s]">
+            Automation
+          </div>
+          <div className="pointer-events-none absolute -right-4 bottom-[6%] z-20 animate-[float_9s_ease-in-out_infinite] rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 backdrop-blur [animation-delay:0.6s]">
+            Analytics
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
