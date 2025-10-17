@@ -1,7 +1,3 @@
-"use client";
-
-import Image from "next/image";
-
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -70,13 +66,10 @@ export default function Hero() {
         <div className="relative">
           {/* ground glow to “blend” laptop into hero */}
           <div className="absolute -bottom-6 left-1/2 h-40 w-[120%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(50%_45%_at_50%_50%,rgba(0,180,255,0.35),transparent_70%)] blur-2xl" />
-          <Image
-            src="/laptop-hero.png" // put your hero image here
+          <img
+            src="/laptop-hero.png"
             alt="AI laptop interface"
-            width={900}
-            height={620}
             className="relative z-10 w-full max-w-[900px] drop-shadow-[0_25px_60px_rgba(0,180,255,0.25)]"
-            priority
           />
           {/* floating icon chips */}
           <div className="pointer-events-none absolute -left-6 top-[16%] z-20 animate-[float_8s_ease-in-out_infinite] rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80 backdrop-blur">

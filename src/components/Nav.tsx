@@ -1,6 +1,4 @@
-"use client";
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Nav() {
@@ -19,7 +17,7 @@ export default function Nav() {
       `}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-bold tracking-tight text-cyan-300">
+        <Link to="/" className="text-lg font-bold tracking-tight text-cyan-300">
           Ethona Digital Lab
         </Link>
 
