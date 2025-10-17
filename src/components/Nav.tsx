@@ -11,13 +11,9 @@ export default function Nav() {
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-40 w-full transition
-        ${scrolled ? "backdrop-blur bg-slate-900/70 ring-1 ring-white/10" : "bg-transparent"}
-      `}
-    >
+    <header className={`sticky top-0 z-40 transition ${scrolled ? "backdrop-blur bg-slate-900/70 ring-1 ring-white/10" : "bg-transparent"}`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="text-lg font-bold tracking-tight text-cyan-300">
+        <Link to="/" className="text-base md:text-lg font-bold tracking-tight text-cyan-300 hover:text-cyan-200">
           Ethona Digital Lab
         </Link>
 
@@ -31,9 +27,7 @@ export default function Nav() {
             <li key={label}>
               <a
                 href={href}
-                className="relative transition hover:text-white
-                 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-[width]
-                 hover:after:w-full"
+                className="relative transition hover:text-white after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-[width] hover:after:w-full"
               >
                 {label}
               </a>
